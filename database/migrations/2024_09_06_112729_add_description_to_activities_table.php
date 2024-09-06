@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->enum('type', ['surf', 'windsurf', 'kayak', 'atv', 'hot air balloon']);
             $table->unsignedBigInteger('user_id');
-            $table->dateTime('datetime', precision: 0);
-            $table->boolean('paid');
+            $table->dateTime('date', precision: 0);
+            $table->boolean('paid')->default(false);
             $table->string('notes', length: 255);
-            $table->unsignedTinyInteger('satisfaction');
+            $table->unsignedTinyInteger('satisfaction')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });

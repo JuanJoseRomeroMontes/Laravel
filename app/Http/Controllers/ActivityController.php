@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
 use App\Enum\ActivityEnum;
 use Illuminate\Validation\Rule;
 use App\Models\Activity;
@@ -14,7 +15,16 @@ class ActivityController extends Controller
     public function index()
     {
         $activities = Activity::all();
-        return response()->json(["activities" => $activities]);
+
+        return view('activities.index', ['activities' => $activities]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        return view('activities.create');
     }
 
     /**
@@ -31,11 +41,7 @@ class ActivityController extends Controller
 
         $activity = Activity::create($validatedData);
 
-        /*$activity = Activity::create(array_merge($validatedData, [
-            'user_id' => Auth::id(),
-        ]));*/
-
-        return response()->json(["activity" => $activity]);
+        return view('activities.store', ['activity' => $activity]);
     }
 
     /**
@@ -43,7 +49,15 @@ class ActivityController extends Controller
      */
     public function show(Activity $activity)
     {
-        return response()->json(["activity" => $activity]);
+        return view('activities.show', ['activity' => $activity]);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        //
     }
 
     /**
@@ -64,7 +78,7 @@ class ActivityController extends Controller
 
         $activity->update($request->all());
 
-        return response()->json(["activity" => $activity]);
+        return view('activities.update', ['activity' => $activity]);
     }
 
     /**
@@ -74,6 +88,6 @@ class ActivityController extends Controller
     {
         Activity::destroy($id);
 
-        return 'Activity with ID '.$id." deleted succesfully";
+        return view('activities.destroy', ['activity' => $activity]);
     }
 }

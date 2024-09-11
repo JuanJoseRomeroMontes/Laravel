@@ -5,7 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Images extends Model
+class Amenity extends Model
 {
     use HasFactory;
+
+    public function roomAmenity(): BelongsTo
+    {
+        return $this->belongsTo(Room_amenity::class);
+    }
 }

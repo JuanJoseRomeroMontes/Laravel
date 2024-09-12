@@ -1,0 +1,11 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 46 46" width="46" height="46">
+	<title>Circle-svg</title>
+	<defs>
+		<image width="16" height="16" id="img1" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE1IDRDMTUgNC4yNTU4NyAxNC45MDIzIDQuNTExODcgMTQuNzA3IDQuNzA2ODdMNi43MDcwMyAxMi43MDY5QzYuNTEyNSAxMi45MDMxIDYuMjU2MjUgMTMgNiAxM0M1Ljc0Mzc1IDEzIDUuNDg4MTMgMTIuOTAyMyA1LjI5MzEzIDEyLjcwN0wxLjI5MzEzIDguNzA3MDNDMS4wOTc4MSA4LjUxMjUgMSA4LjI1NjI1IDEgOEMxIDcuNDI4NzUgMS40NjcxOSA3IDIgN0MyLjI1NTg3IDcgMi41MTE4OCA3LjA5NzY2IDIuNzA2ODggNy4yOTI5N0w2IDEwLjU4NzVMMTMuMjkzNyAzLjI5Mzc1QzEzLjQ4NzUgMy4wOTc4MSAxMy43NDM3IDMgMTQgM0MxNC41MzQ0IDMgMTUgMy40MjgxMyAxNSA0WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg=="/>
+	</defs>
+	<style>
+		.s0 { fill: #bdac8d;stroke: #ffffff;stroke-width: 4 } 
+	</style>
+	<path id="Layer" class="s0" d="m23 44c-11.6 0-21-9.4-21-21 0-11.6 9.4-21 21-21 11.6 0 21 9.4 21 21 0 11.6-9.4 21-21 21z"/>
+	<use id="Check-mark" href="#img1" transform="matrix(1,0,0,1,15,15)"/>
+</svg>

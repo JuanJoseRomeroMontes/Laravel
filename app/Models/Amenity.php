@@ -4,13 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relation\BelongsToMany;
 
 class Amenity extends Model
 {
     use HasFactory;
 
-    public function roomAmenity(): BelongsTo
+    public function roomAmenity(): BelongsToMany
     {
-        return $this->belongsTo(Room_amenity::class);
+        return $this->belongsToMany(Room_amenity::class);
     }
 }

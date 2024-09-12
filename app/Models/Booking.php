@@ -4,18 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Booking extends Model
 {
     use HasFactory;
 
-    public function room(): HasMany
+    public function room(): HasOne
     {
-        return $this->hasMany(Room::class);
-    }
-
-    public function roomType(): HasMany
-    {
-        return $this->hasMany(Room_type::class);
+        return $this->hasOne(Room::class);
     }
 }

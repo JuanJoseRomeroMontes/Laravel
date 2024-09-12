@@ -211,6 +211,20 @@ INSERT INTO `rooms_amenities` VALUES (57,1),(57,2),(57,7),(58,1),(66,5),(66,7);
 UNLOCK TABLES;
 
 --
+-- Table structure for table `contact`
+--
+
+CREATE TABLE `laravel`.`contact` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `date` DATE NOT NULL,
+  `email` VARCHAR(255) NOT NULL,
+  `phone` VARCHAR(255) NOT NULL,
+  `subject` VARCHAR(255) NOT NULL,
+  `comment` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`id`));
+
+
+--
 -- Table structure for table `staff`
 --
 

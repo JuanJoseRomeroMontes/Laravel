@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Room;
+use DB;
 
 class RoomController extends Controller
 {
@@ -13,6 +14,7 @@ class RoomController extends Controller
     public function index()
     {
         $rooms = Room::with('images')->get();
+
         return view('pages.Rooms',["rooms" => $rooms]);
     }
 

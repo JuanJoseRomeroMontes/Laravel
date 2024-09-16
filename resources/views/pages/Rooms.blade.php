@@ -34,17 +34,11 @@
             <article>
                 <div>
                     <div class="div-img" style="background-image: url(
-                        @if($room->images->isNotEmpty())
                             {{ $room->images->first()->url }}
-                        @endif
                     );"></div>
                     <img class="room-list__features no-margin" alt="room features" src="/Images/RoomFeaturesBar.svg"/>
                 </div>
-                <h2>
-                    @if($room->images->isNotEmpty())
-                        {{ $room->room_type->first()->typeName }}
-                    @endif
-                </h2>
+                <h2>{{ $room->room_type->first()->typeName }}</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipi sicing elit, sed do eiusmod tempor.</p>
                 <div class="room-list__pricing">
                     <h3 class="golden-text">$345/Night</h3>

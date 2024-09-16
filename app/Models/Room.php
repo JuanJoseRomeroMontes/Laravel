@@ -11,6 +11,11 @@ class Room extends Model
 {
     use HasFactory;
 
+    protected $table = 'rooms';
+    protected $primaryKey = 'roomType';
+    public $incrementing = false;
+    protected $keyType = 'smallint';
+
     public function booking(): HasMany
     {
         return $this->hasMany(Booking::class);
@@ -23,7 +28,7 @@ class Room extends Model
 
     public function images(): BelongsToMany
     {
-        return $this->belongsToMany(Image::class, 'room_types_images', 'room_type_id', 'image_id');
+        return $this->belongsToMany(Image::class, 'room_types_images', 'room_type_id', 'image_id', 'roomType', 'id');
     }
 
     public function amenities(): BelongsToMany

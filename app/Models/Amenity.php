@@ -12,6 +12,6 @@ class Amenity extends Model
 
     public function roomAmenity(): BelongsToMany
     {
-        return $this->belongsToMany(Room_amenity::class);
+        return $this->belongsToMany(Room::class);
     }
 }

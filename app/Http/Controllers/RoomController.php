@@ -12,7 +12,7 @@ class RoomController extends Controller
      */
     public function index()
     {
-        $rooms = Room::all();
+        $rooms = Room::with('images')->get();
         return view('pages.Rooms',["rooms" => $rooms]);
     }
 

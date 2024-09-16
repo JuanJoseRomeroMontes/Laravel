@@ -10,7 +10,9 @@ class Room_types extends Model
 {
     use HasFactory;
 
-    public function room(): BelongsTo
+    protected $fillable = ["typeName"];
+
+    public function room(): HasMany
     {
         return $this->belongsTo(Room::class);
     }

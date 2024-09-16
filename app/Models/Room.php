@@ -5,21 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Room extends Model
 {
     use HasFactory;
 
-    public function booking(): BelongsTo
+    public function booking(): HasMany
     {
-        return $this->belongsTo(Booking::class);
+        return $this->hasMany(Booking::class);
     }
 
-    public function roomType(): HasOne
+    public function room_type(): HasMany
     {
-        return $this->hasOne(Room_type::class);
+        return $this->hasMany(Room_types::class, 'id');
     }
 
     public function images(): BelongsToMany

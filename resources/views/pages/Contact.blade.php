@@ -58,7 +58,5 @@
             <input type="submit" value="SEND" class="button__filled ">
         </form>
     </section>
-
-    @include('footer')
 </body>
 </html>

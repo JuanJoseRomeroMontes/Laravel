@@ -6,10 +6,11 @@
     <header>
             <p>THE ULTIMATE LUXURY EXPERIENCE</p>
             <h1 class="homeTitle">The Perfect Base For You</h1>
-            <button class="button__filled">TAKE A TOUR</button>
-            <button class="button__hollow">LEARN MORE</button>
+            <a href="#tour"><button class="button__filled">TAKE A TOUR</button></a>
+            <a href="aboutus"><button class="button__hollow">LEARN MORE</button></a>
+            <a id="booking"></a>
     </header>
-
+    
     <section class="availability-section">
         <form>
             <div>
@@ -18,10 +19,10 @@
             </div>
             <div>
                 <label for="departureDate">Departure Date</label>
-                <input type="date" id="departureDate" name="departureDate" >
+                <input type="date" id="departureDate" name="departureDate">
             </div>
             <input type="submit" value="CHECK AVAILABILITY" class="button__filled">
-          </form> 
+          </form>
     </section>
 
     <section class="about-us">
@@ -29,7 +30,7 @@
             <p class="about-us__overtitle">ABOUT US</p>
             <h2>Discover Our Underground.</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            <button class="button__filled">BOOK NOW</button>
+            <a href="#booking"><button class="button__filled">BOOK NOW</button></a>
         </div>
 
         <div class="about-us__div2">
@@ -98,6 +99,7 @@
     </section>
 
     <section class="intro-video">
+        <a id="tour"></a>
         <div>
             <p class="intro-video__overtitle">INTRO VIDEO</p>
             <h2>Meet With Our Luxury Place.</h2>
@@ -107,7 +109,7 @@
             <source src="/Videos/Video-intro.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
-        <button class="button__filled">BOOK NOW</button>
+        <a href="#booking"><button href="booking" class="button__filled">BOOK NOW</button></a>
         <div class="intro-video__golden-background"></div>
     </section>
 

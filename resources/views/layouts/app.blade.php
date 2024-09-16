@@ -59,7 +59,7 @@
         <div class="footer-divider">
             <article class="footer__header">
                 <div class="footer__header__logo">
-                    <div> <p class="no-margin">H</p> </div>
+                    <div> <a href="/" style="text-decoration: none"><p class="no-margin">H</p></a> </div>
                     <img src="/Images/HotelMiranda.svg" alt="HOTEL MIRANDA"/>
                 </div>
 

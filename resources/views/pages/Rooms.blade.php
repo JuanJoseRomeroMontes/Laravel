@@ -15,10 +15,10 @@
         @foreach($rooms as $room)
         <article>
             <div>
-                <div class="div-img" style="background-image: url({{ $room }});"></div>
+                <div class="div-img" style="background-image: url( {{ $room->images->first()->url }} );"></div>
                 <img class="room-list__features no-margin" alt="room features" src="/Images/RoomFeaturesBar.svg"/>
             </div>
-            <h2>Minimal Duplex Room</h2>
+            <h2>{{ $room->room_type->first()->typeName }}</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipi sicing elit, sed do eiusmod tempor.</p>
             <div class="room-list__pricing">
                 <h3 class="golden-text">$345/Night</p>
@@ -33,9 +33,7 @@
         @foreach($rooms as $room)
             <article>
                 <div>
-                    <div class="div-img" style="background-image: url(
-                            {{ $room->images->first()->url }}
-                    );"></div>
+                    <div class="div-img" style="background-image: url( {{ $room->images->first()->url }} );"></div>
                     <img class="room-list__features no-margin" alt="room features" src="/Images/RoomFeaturesBar.svg"/>
                 </div>
                 <h2>{{ $room->room_type->first()->typeName }}</h2>

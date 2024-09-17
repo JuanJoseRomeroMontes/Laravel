@@ -10,10 +10,9 @@ class ContactController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function create()
+    public function index()
     {
-        $contacts = Contact::all();
-        return response()->json(['Contacts' => $contacts]);
+        return view('pages.Contact');
     }
 
     /**
@@ -22,15 +21,17 @@ class ContactController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'date' => 'required|date',
+            'name' => 'required|string',
             'email' => 'required|email',
             'phone' => 'required|string',
             'subject' => 'required|string',
             'comment' => 'required|string',
         ]);
 
+        $validatedData['date'] = now()->toDateString();
+
         $contact = Contact::create($validatedData);
 
-        return response()->json(['deletedContact' => $contact]);
+        return redirect('/contact')->with('status', 'Comment sent, thank you!');
     }
 }

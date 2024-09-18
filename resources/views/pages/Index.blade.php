@@ -12,17 +12,17 @@
     </header>
     
     <section class="availability-section">
-        <form>
+        <form action="/rooms">
             <div>
-                <label for="arrivalDate">Arrival Date</label>
-                <input type="date" id="arrivalDate" name="arrivalDate" >
+                <label for="checkIn">Arrival Date</label>
+                <input type="date" id="checkIn" name="checkIn" >
             </div>
             <div>
-                <label for="departureDate">Departure Date</label>
-                <input type="date" id="departureDate" name="departureDate">
+                <label for="checkOut">Departure Date</label>
+                <input type="date" id="checkOut" name="checkOut">
             </div>
             <input type="submit" value="CHECK AVAILABILITY" class="button__filled">
-          </form>
+        </form>
     </section>
 
     <section class="about-us">

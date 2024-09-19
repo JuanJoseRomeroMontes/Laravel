@@ -39,7 +39,7 @@
             <p>We Make Your Feel Comfortable</p>
         </div>
         <div class="nav-bar">
-            <img class="nav-bar__hamburger" id="navHamburgerButton" src="Images/Hamburguer.svg" alt="Menu"/>
+            <img class="nav-bar__hamburger" id="navHamburgerButton" src="/Images/Hamburguer.svg" alt="Menu"/>
             <a href="/" class="nav-bar__logo">
                 <div> <p>H</p> </div>
                 <img src="/Images/HotelMiranda.svg" alt="HOTEL MIRANDA"/>
@@ -83,7 +83,7 @@
                 
                 <div class="footer__header__social-nets">
                     <div><img alt="facebook" src="/Images/Social/FacebookLogo.svg"></div>
-                    <div class="golden-background"><img alt="twitter" src="Images/Social/twitterLogo.svg"></div>
+                    <div class="golden-background"><img alt="twitter" src="/Images/Social/twitterLogo.svg"></div>
                     <div><img alt="behance" src="/Images/Social/BehanceLogo.svg"></div>
                     <div><img alt="linkedin" src="/Images/Social/LinkedinLogo.svg"></div>
                     <div><img alt="youtube" src="/Images/Social/YoutubeLogo.svg"></div>

@@ -12,37 +12,30 @@
     </header>
 
     <section class="room-info">
-        <p class="offer__overtitle">DOUBLE BED</p>
-        <h2>Luxury Double Bed</h2>
-        <div class="price">
-            <p class="price__number">$345</p>
-            <span class="price__text">/Night</span>
+        <div class="room-info__display">
+            <p class="offer__overtitle">DOUBLE BED</p>
+            <h2>Luxury Double Bed</h2>
+            <div class="price">
+                <p class="price__number">$345</p>
+                <span class="price__text">/Night</span>
+            </div>
+            <img alt="room image not found" src="https://www.shutterstock.com/image-illustration/horizontal-frame-mockup-boho-bedroom-600nw-1901460664.jpg" >
         </div>
-        <img alt="room image not found" src="https://www.shutterstock.com/image-illustration/horizontal-frame-mockup-boho-bedroom-600nw-1901460664.jpg" >
         <article class="room-info__availability">
-            <p>Check Availability</p>
+            <p>Book room</p>
             <form>
                 <label for="arrivalDate">Check in</label>
                 <input type="date" id="arrivalDate" name="arrivalDate">
                 <label for="departureDate">Check out</label>
                 <input type="date" id="departureDate" name="departureDate">
-                <input type="submit" value="CHECK AVAILABILITY" class="button__filled">
+                <label for="name">Your name</label>
+                <input type="text" id="name" name="name">
+                <label for="specialRequest">Special request</label>
+                <input type="text" id="specialRequest" name="specialRequest">
+                <input type="submit" value="BOOK ROOM" class="button__filled">
             </form>
         </article>
         <p class="room-info__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
-    </section>
-
-    <section class="room-founder">
-        <article class="room-founder__profile">
-            <img class="room-founder__profile__mask" src="https://retratosbarcelona.com/wp-content/uploads/2022/09/Retratos-Barcelona-Linkedin-Photo-Sydney.jpg" alt="">
-            
-            
-            <img class="room-founder__profile__check-mark" alt="" src="/Images/Check-mark.svg">  
-
-        </article>
-        <h2>Rosalina D. William</h2>
-        <h3>FOUNDER, QUX CO.</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
     </section>
 
     <section class="room-details">
@@ -108,6 +101,19 @@
         </div>
     </section>
 
+    <section class="room-founder">
+        <article class="room-founder__profile">
+            <img class="room-founder__profile__mask" src="https://secure.gravatar.com/avatar/929e916fa1ad387c80387211eb505045?s=300&d=mm&r=g" alt="">
+            
+            
+            <img class="room-founder__profile__check-mark" alt="" src="/Images/Check-mark.svg">  
+
+        </article>
+        <h2>Pedro Hernandez</h2>
+        <h3>FOUNDER, QUX CO.</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+    </section>
+
     <section class="room-details">
         <h2>Cancellation</h2>
         <hr>
@@ -117,7 +123,7 @@
     <section class="room-details">
         <h2>Related Rooms</h2>
         <hr>
-        <div class="swiper" id="swiper-related-rooms">
+        <div class="swiper room-details__mobile" id="swiper-related-rooms">
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper room-list no-padding">
                 <!-- Slides -->
@@ -163,7 +169,36 @@
             <div class="swiper-button-prev" id="swiper-button-prev-related-rooms"></div>
             <div class="swiper-button-next" id="swiper-button-next-related-rooms"></div>
         </div>
-    </section>
 
+        <div class="swiper room-details__computer">
+            <div class="recomended-room">
+                <img src="/Images/RoomFeaturesBar.svg" class="rooms__features"/>
+                <div class="recomended-room__image" style="background-image: url(https://www.shutterstock.com/image-illustration/horizontal-frame-mockup-boho-bedroom-600nw-1901460664.jpg);"></div>
+                <article>
+                    <h3>Minimal Duplex Room</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                    <div class="recomended-room__pricing"> <p class="price__number">$345<span class="price__text">/Night</span></p> </div>
+                </article>
+            </div>
+            <div class="recomended-room">
+                <img src="/Images/RoomFeaturesBar.svg" class="rooms__features"/>
+                <div class="recomended-room__image" style="background-image: url(https://www.shutterstock.com/image-illustration/horizontal-frame-mockup-boho-bedroom-600nw-1901460664.jpg);"></div>
+                <article>
+                    <h3>Minimal Duplex Room</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                    <div class="recomended-room__pricing"> <p class="price__number">$345<span class="price__text">/Night</span></p> </div>
+                </article>
+            </div>
+            <div class="recomended-room">
+                <img src="/Images/RoomFeaturesBar.svg" class="rooms__features"/>
+                <div class="recomended-room__image" style="background-image: url(https://www.shutterstock.com/image-illustration/horizontal-frame-mockup-boho-bedroom-600nw-1901460664.jpg);"></div>
+                <article>
+                    <h3>Minimal Duplex Room</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                    <div class="recomended-room__pricing"> <p class="price__number">$345<span class="price__text">/Night</span></p> </div>
+                </article>
+            </div>
+        </div>
+    </section>
 </body>
 @endsection

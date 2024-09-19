@@ -14,17 +14,16 @@ class BookingController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required|string',
-            'orderDate' => 'required|date',
             'checkInDate' => 'required|date',
             'checkOutDate' => 'required|date',
-            'specialRequest' => 'required|string',
-            'roomType' => 'required|number',
-            'status' => 'required|in:Check-Out,Check-In',
-            'roomId' => 'required|number',
+            'specialRequest' => 'nullable|string',
+            'roomId' => 'required|integer',
         ]);
+
+        $validatedData['orderDate'] = now()->toDateString();
 
         $booking = Booking::create($validatedData);
 
-        return response()->json(['deletedBooking' => $booking]);
+        return redirect('/')->with('status', 'Booking reserved, thank you!');
     }
 }

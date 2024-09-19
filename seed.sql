@@ -1,13 +1,13 @@
--- MySQL dump 10.13  Distrib 8.0.32, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.38, for Win64 (x86_64)
 --
--- Host: localhost    Database: laravel
+-- Host: 127.0.0.1    Database: laravel
 -- ------------------------------------------------------
 -- Server version	8.0.32
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8mb4 */;
+/*!50503 SET NAMES utf8 */;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -85,12 +85,11 @@ CREATE TABLE `bookings` (
   `checkInDate` varchar(255) NOT NULL,
   `checkOutDate` varchar(255) NOT NULL,
   `specialRequest` varchar(300) DEFAULT NULL,
-  `status` varchar(255) NOT NULL,
   `roomId` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `roomId` (`roomId`),
   CONSTRAINT `bookings_ibfk_1` FOREIGN KEY (`roomId`) REFERENCES `rooms` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=203 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=206 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -99,6 +98,7 @@ CREATE TABLE `bookings` (
 
 LOCK TABLES `bookings` WRITE;
 /*!40000 ALTER TABLE `bookings` DISABLE KEYS */;
+INSERT INTO `bookings` VALUES (204,'Paco','2024-09-01','2024-09-16','2024-09-22','clean towels',69),(205,'Ruben','2024-09-01','2024-09-01','2024-09-21',NULL,73);
 /*!40000 ALTER TABLE `bookings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -159,13 +159,14 @@ DROP TABLE IF EXISTS `contact`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `contact` (
   `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
   `date` date NOT NULL,
   `email` varchar(255) NOT NULL,
   `phone` varchar(255) NOT NULL,
   `subject` varchar(255) NOT NULL,
   `comment` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -174,6 +175,7 @@ CREATE TABLE `contact` (
 
 LOCK TABLES `contact` WRITE;
 /*!40000 ALTER TABLE `contact` DISABLE KEYS */;
+INSERT INTO `contact` VALUES (1,'Test','2024-09-17','email@gmail.com','123','Testing','protected $table = \'contact\';');
 /*!40000 ALTER TABLE `contact` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -392,7 +394,7 @@ CREATE TABLE `room_types` (
 
 LOCK TABLES `room_types` WRITE;
 /*!40000 ALTER TABLE `room_types` DISABLE KEYS */;
-INSERT INTO `room_types` VALUES (1,'Single Bed'),(2,'Double Bed'),(3,'Double Superior'),(4,'Suite'),(10001,'test');
+INSERT INTO `room_types` VALUES (1,'Single Bed'),(2,'Double Bed'),(3,'Double Superior'),(4,'Suite');
 /*!40000 ALTER TABLE `room_types` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -412,7 +414,7 @@ CREATE TABLE `room_types_images` (
   KEY `imageId` (`image_id`),
   CONSTRAINT `room_type` FOREIGN KEY (`room_type_id`) REFERENCES `room_types` (`id`),
   CONSTRAINT `room_types_images_ibfk_2` FOREIGN KEY (`image_id`) REFERENCES `images` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -421,6 +423,7 @@ CREATE TABLE `room_types_images` (
 
 LOCK TABLES `room_types_images` WRITE;
 /*!40000 ALTER TABLE `room_types_images` DISABLE KEYS */;
+INSERT INTO `room_types_images` VALUES (6,1,1),(7,2,2),(8,3,3),(9,4,4);
 /*!40000 ALTER TABLE `room_types_images` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -433,7 +436,6 @@ DROP TABLE IF EXISTS `rooms`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `rooms` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
   `roomType` int NOT NULL,
   `price` int NOT NULL,
   `offer` tinyint NOT NULL,
@@ -445,7 +447,7 @@ CREATE TABLE `rooms` (
   PRIMARY KEY (`id`),
   KEY `roomType` (`roomType`),
   CONSTRAINT `room_type_reference` FOREIGN KEY (`roomType`) REFERENCES `room_types` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=69 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=74 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -454,6 +456,7 @@ CREATE TABLE `rooms` (
 
 LOCK TABLES `rooms` WRITE;
 /*!40000 ALTER TABLE `rooms` DISABLE KEYS */;
+INSERT INTO `rooms` VALUES (69,1,100,0,10,'Description ipsum',1,'Cancellation ipsum',1),(71,2,200,1,20,'Description lorem',0,'Cancellation lorem',2),(72,3,150,1,30,'Description dolor',0,'Cancellation dolor',3),(73,4,250,1,5,'Description sit',1,'Cancellation sit',4);
 /*!40000 ALTER TABLE `rooms` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -465,15 +468,15 @@ DROP TABLE IF EXISTS `rooms_amenities`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `rooms_amenities` (
-  `id` int NOT NULL,
-  `roomId` int DEFAULT NULL,
-  `amenityId` int DEFAULT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
+  `roomId` int NOT NULL,
+  `amenityId` int NOT NULL,
   PRIMARY KEY (`id`),
   KEY `amenities_idx` (`amenityId`),
   KEY `room_idx` (`roomId`),
   CONSTRAINT `amenities` FOREIGN KEY (`amenityId`) REFERENCES `amenities` (`id`),
   CONSTRAINT `room` FOREIGN KEY (`roomId`) REFERENCES `rooms` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -482,6 +485,7 @@ CREATE TABLE `rooms_amenities` (
 
 LOCK TABLES `rooms_amenities` WRITE;
 /*!40000 ALTER TABLE `rooms_amenities` DISABLE KEYS */;
+INSERT INTO `rooms_amenities` VALUES (11,69,1),(12,71,2),(13,72,3),(14,73,4);
 /*!40000 ALTER TABLE `rooms_amenities` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -511,7 +515,7 @@ CREATE TABLE `sessions` (
 
 LOCK TABLES `sessions` WRITE;
 /*!40000 ALTER TABLE `sessions` DISABLE KEYS */;
-INSERT INTO `sessions` VALUES ('iieApSX3Bujx6RR2YTKQAQwGkq9h8jssKt51fDlk',NULL,'172.18.0.1','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36','YTozOntzOjY6Il90b2tlbiI7czo0MDoiankxckZKZ25GZldvMnBmQjY1Z2tjbDNjYk9UaHVvdTEwc0szR3EwbiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjI6Imh0dHA6Ly9sb2NhbGhvc3Qvcm9vbXMiO319',1726241791),('rzjUAJXl2Hc0j1EDzxzRPvHiJ2vPaRgy3bPxiyti',NULL,'172.18.0.1','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36','YTozOntzOjY6Il90b2tlbiI7czo0MDoiOVZSUUhmUURmcndpR2VKeXFQYzgzb1A3VmJ1V2ppc293ZHNpQmtZcSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjI6Imh0dHA6Ly9sb2NhbGhvc3Qvcm9vbXMiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19',1726483969);
+INSERT INTO `sessions` VALUES ('Z2xyrXn5cc1v1kGRX9UKVi9nIjgKzrzlXai10SWs',NULL,'172.18.0.1','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36','YTozOntzOjY6Il90b2tlbiI7czo0MDoiOGVxSFhnaVEzOFBTdVd3am1qZTRmWTl6azg2eFE2cXVWRWpWSHV5NiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjg6Imh0dHA6Ly9sb2NhbGhvc3Qvcm9vbUluZm8vNjkiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19',1726780910);
 /*!40000 ALTER TABLE `sessions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -588,4 +592,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-09-16 11:33:23
+-- Dump completed on 2024-09-19 23:27:50

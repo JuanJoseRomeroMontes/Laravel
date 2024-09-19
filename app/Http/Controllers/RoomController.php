@@ -21,11 +21,10 @@ class RoomController extends Controller
         return view('pages.Rooms',["rooms" => $rooms]);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Room $room)
+    public function show($id)
     {
-        return response()->json(['room' => $room]);
+        $room = Room::with(['room_type', 'amenities', 'images'])->findOrFail($id);
+
+        return view('pages.RoomInfo', compact('room'));
     }
 }

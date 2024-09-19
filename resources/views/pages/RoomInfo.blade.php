@@ -13,25 +13,26 @@
 
     <section class="room-info">
         <div class="room-info__display">
-            <p class="offer__overtitle">DOUBLE BED</p>
-            <h2>Luxury Double Bed</h2>
+            <p class="offer__overtitle">{{$room->room_type->first->typeName->typeName}}</p>
+            <h2>Luxury {{$room->room_type->first->typeName->typeName}}</h2>
             <div class="price">
-                <p class="price__number">$345</p>
+                <p class="price__number">{{$room->price}}€</p>
                 <span class="price__text">/Night</span>
             </div>
-            <img alt="room image not found" src="https://www.shutterstock.com/image-illustration/horizontal-frame-mockup-boho-bedroom-600nw-1901460664.jpg" >
+            <img alt="room image not found" src="{{ $room->images->first()->url }}" >
         </div>
         <article class="room-info__availability">
             <p>Book room</p>
-            <form>
-                <label for="arrivalDate">Check in</label>
-                <input type="date" id="arrivalDate" name="arrivalDate">
-                <label for="departureDate">Check out</label>
-                <input type="date" id="departureDate" name="departureDate">
+            <form method="POST" action="/bookings">
+                <input type="hidden" name="roomId" value="{{ $room->id }}">
+                <label for="checkInDate">Check in</label>
+                <input type="date" id="checkInDate" name="checkInDate" required>
+                <label for="checkOutDate">Check out</label>
+                <input type="date" id="checkOutDate" name="checkOutDate" required>
                 <label for="name">Your name</label>
-                <input type="text" id="name" name="name">
+                <input type="text" id="name" name="name" required>
                 <label for="specialRequest">Special request</label>
-                <input type="text" id="specialRequest" name="specialRequest">
+                <input type="text" id="specialRequest" name="specialRequest" required>
                 <input type="submit" value="BOOK ROOM" class="button__filled">
             </form>
         </article>
@@ -104,10 +105,7 @@
     <section class="room-founder">
         <article class="room-founder__profile">
             <img class="room-founder__profile__mask" src="https://secure.gravatar.com/avatar/929e916fa1ad387c80387211eb505045?s=300&d=mm&r=g" alt="">
-            
-            
             <img class="room-founder__profile__check-mark" alt="" src="/Images/Check-mark.svg">  
-
         </article>
         <h2>Pedro Hernandez</h2>
         <h3>FOUNDER, QUX CO.</h3>

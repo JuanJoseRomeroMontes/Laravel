@@ -40,7 +40,7 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipi sicing elit, sed do eiusmod tempor.</p>
                 <div class="room-list__pricing">
                     <h3 class="golden-text">$345/Night</h3>
-                    <h3>Booking Now</h3>
+                    <a href="{{ route('roomInfo', $room->id) }}" style="color: gray;">Booking Now</a>
                 </div>
             </article>
         @endforeach

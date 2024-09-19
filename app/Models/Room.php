@@ -13,7 +13,7 @@ class Room extends Model
     use HasFactory;
 
     protected $table = 'rooms';
-    protected $primaryKey = 'roomType';
+    protected $primaryKey = 'id';
     public $incrementing = false;
     protected $keyType = 'smallint';
 
@@ -24,7 +24,7 @@ class Room extends Model
 
     public function room_type(): HasMany
     {
-        return $this->hasMany(Room_types::class, 'id');
+        return $this->hasMany(Room_types::class, 'id', 'roomType');
     }
 
     public function images(): BelongsToMany
@@ -34,7 +34,7 @@ class Room extends Model
 
     public function amenities(): BelongsToMany
     {
-        return $this->belongsToMany(Room_amenity::class);
+        return $this->belongsToMany(Amenity::class, 'rooms_amenities', 'roomId', 'amenityid', 'id', 'id');
     }
 
     public static function getAvailableRooms($request)

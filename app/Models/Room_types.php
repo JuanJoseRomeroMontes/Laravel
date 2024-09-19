@@ -10,6 +10,7 @@ class Room_types extends Model
 {
     use HasFactory;
 
+    protected $table = 'room_types';
     protected $fillable = ["typeName"];
 
     public function room(): HasMany

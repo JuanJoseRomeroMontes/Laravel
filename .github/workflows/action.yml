@@ -18,11 +18,11 @@ jobs:
         port: 22
         script: |
           cd /var/www/Laravel
-          git pull
+          sudo sudo git pull
           sudo mysql -u root -p laravel < seed.sql
 #Install dependencies and restar apache
-          apt-get update
-          apt-get upgrade
-          apt-get install mysql-server
-          apt-get install apache2
-          systemctl restart apache2
+          sudo apt-get update
+          sudo apt-get upgrade
+          sudo apt-get install mysql-server
+          sudo apt-get install apache2
+          sudo systemctl restart apache2

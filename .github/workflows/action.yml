@@ -1,0 +1,28 @@
+name: remote ssh command
+on:
+  pull_request:
+  push: 
+    branches:
+      - "main"
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - name: executing remote ssh commands
+      uses: appleboy/ssh-action@v1.0.3
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.KEY }}
+        port: 22
+        script: |
+          cd /var/www/Laravel
+          git pull
+          sudo mysql -u root -p laravel < seed.sql
+#Install dependencies and restar apache
+          apt-get update
+          apt-get upgrade
+          apt-get install mysql-server
+          apt-get install apache2
+          systemctl restart apache2

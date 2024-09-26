@@ -19,8 +19,8 @@ jobs:
         script: |
           cd /var/www/Laravel
           sudo sudo git pull
+          sudo composer install
           sudo mysql -u root -p laravel < seed.sql
-#Install dependencies and restar apache
           sudo apt-get update
           sudo apt-get upgrade
           sudo apt-get install mysql-server

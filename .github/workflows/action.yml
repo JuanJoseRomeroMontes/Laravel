@@ -20,11 +20,10 @@ jobs:
         port: 22
         script: |
           cd /var/www/Laravel
+          git config pull.rebase false
           sudo git pull
-          sudo composer install
+          sudo COMPOSER_ALLOW_SUPERUSER=1 composer install
           sudo mysql -u root -p laravel < seed.sql
-          sudo apt-get update
-          sudo apt-get upgrade
-          sudo apt-get install mysql-server
+          sudo mysql -u root -p${{ secrets.MYSQL_PASSWORD }} laravel < seed.sql
           sudo apt-get install apache2
           sudo systemctl restart apache2

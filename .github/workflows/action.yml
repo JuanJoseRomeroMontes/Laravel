@@ -11,7 +11,7 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-    - name: executing remote ssh commands
+    - name: Deploy to aws
       uses: appleboy/ssh-action@v1.0.3
       with:
         host: ${{ secrets.HOST }}
@@ -20,7 +20,7 @@ jobs:
         port: 22
         script: |
           cd /var/www/Laravel
-          sudo sudo git pull
+          sudo git pull
           sudo composer install
           sudo mysql -u root -p laravel < seed.sql
           sudo apt-get update
